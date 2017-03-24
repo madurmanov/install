@@ -29,8 +29,8 @@ install_alert () {
   echo "\xF0\x9F\x8E\xB5  \033[1mInstall $1\033[0m"
 }
 
-install_alredy () {
-  echo "\033[1m$1 alredy installed\033[0m"
+install_already () {
+  echo "\xF0\x9F\x8E\xB5  \033[1m$1 already installed\033[0m"
 }
 
 install_start() {
