@@ -1,6 +1,67 @@
 #!/bin/bash
+#
+# musical-install is shell library of helper functions
+# for create install files with use musical emoji
+#
+# Mikhail Durmanov <madurmanov@gmail.com>
 
-confirm () {
+########################################
+# Print start emoji
+# Globals:
+#   NONE
+# Arguments:
+#   TEXT
+# Returns:
+#   NONE
+########################################
+mi_start() {
+  if [ $1 ] ; then
+    echo "\xF0\x9F\x8E\xBC \033[1m$1\033[0m"
+  else
+    echo "\xF0\x9F\x8E\xBC \033[1mInstall start\033[0m"
+  fi
+}
+
+########################################
+# Print step emoji
+# Globals:
+#   NONE
+# Arguments:
+#   TEXT
+# Returns:
+#   NONE
+########################################
+mi_step () {
+  echo "\xF0\x9F\x8E\xB5 \033[1m$1\033[0m"
+}
+
+########################################
+# Print complete emoji
+# Globals:
+#   NONE
+# Arguments:
+#   TEXT
+# Returns:
+#   NONE
+########################################
+mi_complete() {
+  if [ $1 ] ; then
+    echo "\xF0\x9F\x8E\xB6 \033[1m$1\033[0m"
+  else
+    echo "\xF0\x9F\x8E\xB6 \033[1mInstall complete!\033[0m"
+  fi
+}
+
+########################################
+# Confirm actions by answer yes or no
+# Globals:
+#   RESPONSE
+# Arguments:
+#   QUESTION
+# Returns:
+#   BOOLEAN
+########################################
+mi_confirm () {
   read -r -p "$(tput bold)$1? (y/[N])$(tput sgr0) " RESPONSE
   case $RESPONSE in
     [yY][eE][sS]|[yY])
@@ -12,33 +73,28 @@ confirm () {
   esac
 }
 
-install () {
-  install_alert $1
-  [ ! -f $2 ] || mkdir -p $2
+########################################
+# Create symbol links from to
+# Globals:
+#   PWD
+# Arguments:
+#   FROM
+#   TO
+#   RECURSIVE
+# Returns:
+#   NONE
+########################################
+mi_install () {
+  mi_step "Install $1"
+  if [ ! -f $2 ] ; then
+    mkdir -p $2
+  fi
   if [ $3 ] ; then
-    ln -sfiv $(pwd)/$1 $2
-  else
-    local LIST=$(find $1 -type f -exec basename {} \;)
-    for ITEM in ${LIST[*]} ; do
-      ln -sfiv $(pwd)/$1/$ITEM $2/$ITEM
+    local FILES=$(find $1 -type f -exec basename {} \;)
+    for FILE in ${FILES[*]} ; do
+      ln -sfiv $(PWD)/$1/$FILE $2/$FILE
     done
+  else
+    ln -sfiv $(PWD)/$1 $2
   fi
 }
-
-install_alert () {
-  echo "\xF0\x9F\x8E\xB5  \033[1mInstall $1\033[0m"
-}
-
-install_already () {
-  echo "\xF0\x9F\x8E\xB5  \033[1m$1 already installed\033[0m"
-}
-
-install_start() {
-  echo "\xF0\x9F\x8E\xBC  \033[1mInstall start\033[0m"
-}
-
-install_complete() {
-  echo "\xF0\x9F\x8E\xB6  \033[1mInstall complete!\033[0m"
-}
-
-DYWI="Do you want install"
