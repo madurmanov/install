@@ -1,12 +1,12 @@
 #!/bin/bash
 #
 # musical-install is shell library of helper functions
-# for create install files with use musical emoji
+# for create install files with use musical emojis
 #
 # Mikhail Durmanov <madurmanov@gmail.com>
 
 ########################################
-# Print start emoji
+# Print start emoji 🎼
 # Globals:
 #   NONE
 # Arguments:
@@ -23,7 +23,7 @@ mi_start() {
 }
 
 ########################################
-# Print step emoji
+# Print step emoji 🎵
 # Globals:
 #   NONE
 # Arguments:
@@ -36,7 +36,7 @@ mi_step () {
 }
 
 ########################################
-# Print complete emoji
+# Print complete emoji 🎶
 # Globals:
 #   NONE
 # Arguments:
@@ -57,7 +57,7 @@ mi_complete() {
 # Globals:
 #   RESPONSE
 # Arguments:
-#   QUESTION
+#   ACTION
 # Returns:
 #   BOOLEAN
 ########################################
