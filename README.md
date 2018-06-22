@@ -1,12 +1,12 @@
 # musical-install
 
-musical-install is shell library of helper functions for create install files with use musical emojis
+musical-install is shell library of helper functions for create install files with use musical emojis.
 
 ## Functions
 
-- mi_start (print start emoji :musical_score:)
-- mi_step (print step emoji :musical_note:)
-- mi_complete (print complete emoji :notes:)
+- mi_start (print start emoji) - :musical_score:
+- mi_step (print step emoji) - :musical_note:
+- mi_complete (print complete emoji) - :notes:
 - mi_confirm (confirm actions by answer yes or no)
 - mi_install (create symbol links from to)
 
@@ -28,6 +28,10 @@ mi_complete
 ## Authors
 
 - [Mikhail Durmanov](https://github.com/madurmanov) &lt;madurmanov@gmail.com&gt;
+
+## Wishes
+
+Make music guys by automating your work environment with fun.
 
 ## License
 
