@@ -25,10 +25,6 @@ mi_complete
 ```
 ![musical-install usage](./screenshot.png)
 
-## Authors
-
-- [Mikhail Durmanov](https://github.com/madurmanov) &lt;madurmanov@gmail.com&gt;
-
 ## Wishes
 
 Make music guys by automating your work environment with fun.
