@@ -18,9 +18,11 @@ musical-install is shell library of helper functions for create install files wi
 eval "$(curl -sL https://raw.githubusercontent.com/madurmanov/musical-install/master/musical-install.sh)"
 
 mi_start
+
 if mi_confirm "Do you want install emacs" ; then
   mi_install .emacs.d $HOME
 fi
+
 mi_complete
 ```
 ![musical-install usage](./screenshot.png)
